@@ -55,7 +55,7 @@ defmodule TelegramApiJson do
   defp tree do
     [{_, _, tree} | _] =
       get_html()
-      |> Floki.parse()
+      |> Floki.parse_document!()
       |> Floki.find("#dev_page_content")
 
     tree

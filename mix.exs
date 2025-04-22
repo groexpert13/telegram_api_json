@@ -20,8 +20,8 @@ defmodule TelegramApiJson.MixProject do
   defp deps do
     [
       {:httpoison, "~> 2.2"},
-      {:poison, "~> 4.0"},
-      {:floki, "~> 0.20.0"}
+      {:poison, "~> 6.0"},
+      {:floki, "~> 0.37"}
     ]
   end
 end
