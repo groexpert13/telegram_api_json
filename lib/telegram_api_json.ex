@@ -39,7 +39,9 @@ defmodule TelegramApiJson do
     "RevenueWithdrawalState",
     "TransactionPartner",
     "BackgroundFill",
-    "BackgroundType"
+    "BackgroundType",
+    "InputProfilePhoto",
+    "InputStoryContent"
   ]
 
   @zero_parameters ["getMe", "getWebhookInfo", "logOut", "close", "getAvailableGifts"]
@@ -55,7 +57,7 @@ defmodule TelegramApiJson do
   defp tree do
     [{_, _, tree} | _] =
       get_html()
-      |> Floki.parse()
+      |> Floki.parse_document!()
       |> Floki.find("#dev_page_content")
 
     tree
