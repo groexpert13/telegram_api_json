@@ -40,7 +40,8 @@ defmodule TelegramApiJson do
     "TransactionPartner",
     "BackgroundFill",
     "BackgroundType",
-    "InputProfilePhoto"
+    "InputProfilePhoto",
+    "InputStoryContent"
   ]
 
   @zero_parameters ["getMe", "getWebhookInfo", "logOut", "close", "getAvailableGifts"]
