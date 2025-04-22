@@ -39,7 +39,8 @@ defmodule TelegramApiJson do
     "RevenueWithdrawalState",
     "TransactionPartner",
     "BackgroundFill",
-    "BackgroundType"
+    "BackgroundType",
+    "InputProfilePhoto"
   ]
 
   @zero_parameters ["getMe", "getWebhookInfo", "logOut", "close", "getAvailableGifts"]
