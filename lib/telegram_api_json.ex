@@ -230,10 +230,11 @@ defmodule TelegramApiJson do
   end
 
   @simple_return_r ~r{(?:r|R)eturns (?:the |a )?([^\s]+)}
+  @on_success_return ~r{(?:r|R)eturns (?:the |a )?([^\s]+) on success}
   @as_object_r ~r{(?:r|R)eturns the (?:.+ )?(?:as |a |as a )([^\s]+)}
   @is_returned_r ~r{([^\s]+) (?:object )?is returned}
 
-  @all_type_regexes_r [@as_object_r, @simple_return_r, @is_returned_r]
+  @all_type_regexes_r [@on_success_return, @is_returned_r, @as_object_r, @simple_return_r]
 
   defp extract_return_type(type) do
     post_ts = [

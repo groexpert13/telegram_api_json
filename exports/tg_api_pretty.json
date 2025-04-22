@@ -18739,7 +18739,7 @@
       "type": "get",
       "name": "getBusinessAccountStarBalance",
       "return": [
-        "managed"
+        "StarAmount"
       ]
     },
     {
@@ -18847,7 +18847,7 @@
       "type": "get",
       "name": "getBusinessAccountGifts",
       "return": [
-        "managed"
+        "OwnedGifts"
       ]
     },
     {
