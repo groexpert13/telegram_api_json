@@ -1,0 +1,35 @@
+name: 🛠 Auto Sync Fork Every 2 Weeks
+
+on:
+  schedule:
+    - cron: '0 2 1,15 * *'  # 1-е и 15-е число каждого месяца в 02:00 UTC
+  workflow_dispatch:        # Возможность запускать вручную из GitHub
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: 📡 Set up Git user
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+
+      - name: 🔗 Add upstream & fetch
+        run: |
+          git remote add upstream https://github.com/rockneurotiko/telegram_api_json.git
+          git fetch upstream
+
+      - name: 🔄 Merge upstream into main
+        run: |
+          git checkout main
+          git merge upstream/main --allow-unrelated-histories -m "🔄 Sync with upstream"
+
+      - name: ☁️ Push changes to fork
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
